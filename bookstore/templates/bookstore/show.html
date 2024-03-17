@@ -1,0 +1,23 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block 'content' %}
+    <div class="container">
+        <h1 class="text-center my-4">Book Details</h1>
+        <div class="card mb-3">
+            <img src="{{book.image_url}}"
+                width="200px" height="200px"
+                class="card-img-top-left" alt="Book Image">
+            <div class="card-body">
+                <h5 class="card-title">{{ book.name }}</h5>
+                <p class="card-text">Price: ${{ book.price }}</p>
+                <p class="card-text">Number of Pages: {{ book.pages }}</p>
+                <h5> <a href="{{book.author.show_url}}"> {{book.author}}</a></h5>
+                <p class="card-text">Created at: {{book.created_at}}.</p>
+                <p class="card-text">Updated at: {{book.updated_at}}.</p>
+            </div>   
+        </div>
+        <div class="text-center">
+            <a class="btn btn-info" href="{% url 'bookstore.books2' %}">Back to All Books</a>
+        </div>
+    </div> 
+{% endblock %}

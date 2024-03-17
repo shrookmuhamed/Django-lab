@@ -1,0 +1,22 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block 'content' %}
+  <div class="container-fluid d-flex align-items-center justify-content-center" style="height: 70vh;">
+    <div class="text-center">
+      <h1 style="font-family: 'Times New Roman', Times, serif;">Welcome to</h1>
+      <img src="{% static 'bookstore/images/2.png' %}"
+           width="300"  height="300"
+           class="card-img-top" alt="Bookstore Image">
+           <h1 style="font-family: 'Times New Roman', Times, serif;">BookStore</h1>
+    </div>
+    
+  </div>
+  <div class="text-center">
+    <!-- <a class="btn btn-info" href="{% url 'login' %}">login</a> -->
+    <a class="btn btn-info"  href="{% url 'register' %}">Register</a>
+  </div>
+
+{% endblock %}
+
+
+  

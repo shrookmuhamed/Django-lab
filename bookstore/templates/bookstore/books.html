@@ -1,0 +1,25 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block 'content' %}
+
+<h1 style="text-align: center;margin: 30px;"> Available Books </h1>
+
+<table class="table" style="text-align: center;">
+    <tr>
+        <th>NO.</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Show</th>
+    </tr>
+
+    {% for book in books %}
+    <tr>
+        <td>{{ book.id }}</td>
+        <td>{{ book.name }}</td>
+        <td>{{ book.price }}</td>
+        <td><a class="btn btn-info" href="{% url 'bookstore.profile' book.id %}">Show</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

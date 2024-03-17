@@ -1,0 +1,39 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block 'content' %}
+
+<h1 style="text-align: center;margin: 30px;"> Authors </h1>
+
+<table class="table" style="text-align: center;">
+    <tr>
+        <th>NO.</th>
+        <th>Name</th>
+        <th>Show</th>
+      
+        {% if user.id %}
+        <th>Edit</th>
+        <th>Delete</th> 
+         {% endif %}
+    </tr>
+
+    {% for author in authors %}
+    <tr>
+        <td>{{ author.id }}</td>
+        <td>{{ author.name }}</td>
+        
+        <td><a class="btn btn-info" href="{% url 'author.show' author.id %}">Show</a></td>
+      
+        {% if user.id %}
+        <td><a class="btn btn-info" href="{% url 'author.edit' author.id %}">Edit</a></td>
+        <td><a class="btn btn-info" href="{% url 'author.delete' author.id %}">Delete</a></td>
+       {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+<div class="text-center">
+   
+        {% if user.id %}
+    <a class="btn btn-info" href="{% url 'author.add' %}">Add Author</a> 
+    {% endif %}
+</div>
+{% endblock %}

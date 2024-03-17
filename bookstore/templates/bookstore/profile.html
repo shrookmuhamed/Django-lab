@@ -1,0 +1,25 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block 'content' %}
+    <div class="container">
+        <h1 class="text-center my-4">Book Details</h1>
+        <div class="card mb-3">
+            <img src="{% static 'bookstore/images/' %}{{ book.image }}"
+                width="200px" height="200px"
+                class="card-img-top-left" alt="Book Image">
+            <div class="card-body">
+                <h5 class="card-title">{{ book.name }}</h5>
+                <p class="card-text">Price: ${{ book.price }}</p>
+                <!-- <p class="card-text">Author: {{ book.author }}</p> -->
+                <p class="card-text">Number of Pages: {{ book.pages }}</p>
+            </div>   
+        </div>
+        <div class="text-center">
+            <a class="btn btn-info" href="{% url 'bookstore.books' %}">Back to All Books</a>
+        </div>
+        <div class="text-center">
+            <a class="btn btn-info" href="{% url 'bookstore.add' %}">Add Book</a>
+            <a class="btn btn-info" href="{% url 'bookstore.add' %}">Add Book</a>
+        </div>
+    </div> 
+{% endblock %}
